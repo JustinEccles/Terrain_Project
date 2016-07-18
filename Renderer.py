@@ -34,7 +34,7 @@ class Renderer:
     
 Asize = 60
 Ares = 10
-Alpha = noise_Gen2D(Asize,Ares,2,0.4,7)
+Alpha = noise_Gen2D(Asize,Ares,4,0.3,15,4)
 print("Generating Array")
 Beta = Alpha.generate2DNoiseArray()
 print("Sanitizing Array")
