@@ -1,12 +1,14 @@
 import noise
-
-noiseList = []
+size = 10
 noiseList2D = []
-for x in range(10):
-    for y in range(10):
-        newNoise = noise.snoise2(x,y,1,0.5,2.0)
-        noiseList.append(newNoise)
-    noiseList2D.append(noiseList)
-
+for pos in range(size):
+    noiseList2D.append([])
+x,y = 0,0
+for x in range(size):
+    for y in range(size):
+        newNoise = noise.snoise2(x/size,y/size,1,0.5,2.0)
+        noiseList2D[x].append(newNoise)
     
-print(noiseList2D)
+
+for pos in  noiseList2D:
+    print(pos)
