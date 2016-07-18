@@ -14,16 +14,25 @@ class noise_Gen2D:
         
     def generate2DNoiseArray(self):
         for x in range(self.scale*self.resolution):
-            print("Row #" + str(x) + " being generated")
             for y in range(self.scale*self.resolution):
                 newNoise = noise.snoise2(x/(self.scale*self.resolution),y/(self.scale*self.resolution),self.octaves,self.persistence,self.lacunarity,1024,1024,self.base)
                 self.noiseList2D[x].append(newNoise)
         return self.noiseList2D
+    def combineLayers(self,array1,weight1,array2,weight2):
+        betaArray = []
+        for pos in range(len(array1)):
+            betaArray.append([])
+        for x in range(len(array1)):
+            for y in range(len(array1)):
+                pntA = array1[x][y] * weight1
+                pntB = array2[x][y] * weight2
+                betaArray[x].append(pntA+pntB)
+        return betaArray
     def sanitizePointList(self,pntArray):
         for x in range(len(pntArray)):
-            print("Row #" + str(x) + " being sanitized")
             for y in range(len(pntArray)):
                 pnt = pntArray[x][y]
+                pnt *= -1
                 pnt *= 127
                 pnt += 128
                 pntArray[x][y] = pygame.Color(int(pnt),int(pnt),int(pnt))
