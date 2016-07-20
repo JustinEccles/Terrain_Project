@@ -86,3 +86,5 @@ class cust_Perlin:
             a %= self.repeat
         return a
     
+    
+    

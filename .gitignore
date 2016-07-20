@@ -1,2 +1,3 @@
 *.png
 __pycache__/cust_Perlin.cpython-34.pyc
+*.pyc
