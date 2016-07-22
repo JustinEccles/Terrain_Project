@@ -3,12 +3,19 @@ Created on Jul 20, 2016
 s
 @author: User
 '''
-import copy
 import pygame
 class noiseUtil:
     
     def __init__(self):
-        name = ""
+        self.GREEN = pygame.Color(0,153,51,255)
+        self.BLUE = pygame.Color(0,32,128,255)
+        self.RED = pygame.Color(255,0,0,255)
+        self.BROWN = pygame.Color(134,89,45,255)
+        self.WHITE = pygame.Color(255,255,255,255)
+        self.YELLOW = pygame.Color(230,153,0,255)
+        self.GRAY = pygame.Color(169,169,169,255)
+        self.DARKGREEN = pygame.Color(51,102,0,255)
+        self.PINK = pygame.Color(255,51,255,255) # A.k.a. "Debug Pink"
         
     def convertDblToClrArray(self,colorArray,blackReplace=pygame.Color(0,0,0,255),whiteReplace=pygame.Color(255,255,255,255)):
         RGRat = (whiteReplace.r - blackReplace.r)/255
@@ -33,3 +40,37 @@ class noiseUtil:
                 colorArray[posX][posY] = pygame.Color(tmpR,tmpG,tmpB,255)
                 
         return colorArray
+    
+    def getGroundColor(self,size,heightMap,heatMap,moistureMap):
+        colorArray = []
+        for pos in range(size):
+            colorArray.append([])
+        for x in range(size):
+            for y in range(size):
+                if heightMap[x][y] < 0.39:
+                    colorArray[x].append(self.BLUE)
+                elif (heightMap[x][y] > 0.95):
+                    if (heatMap[x][y] < 0.95):
+                        colorArray[x].append(self.GRAY)
+                    if (heatMap[x][y] >= 0.95):
+                        colorArray[x].append(self.WHITE)
+                elif (heightMap[x][y] > 0.5):
+                    if (heatMap[x][y] <= 0.85):
+                        colorArray[x].append(self.GREEN)
+                    if (heatMap[x][y] > 0.85):
+                        colorArray[x].append(self.GRAY)
+                elif (heightMap[x][y] > 0.4):
+                    if(moistureMap[x][y] > 0.6):
+                        if(heatMap[x][y] > 0.95):
+                            colorArray[x].append(self.WHITE)
+                        else:
+                            colorArray[x].append(self.DARKGREEN)
+                    if(moistureMap[x][y] <= 0.6):
+                        if(heatMap[x][y] > 0.95):
+                            colorArray[x].append(self.WHITE)
+                        else:
+                            colorArray[x].append(self.BROWN)
+                else:
+                    colorArray[x].append(self.PINK)
+        return colorArray
+        

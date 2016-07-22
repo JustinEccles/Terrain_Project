@@ -6,8 +6,9 @@ Created on Jul 19, 2016
 import random
 class cust_Perlin:
 
-    def __init__(self,seed,size=256,repeat=0):
+    def __init__(self,seed,size=256,abso=False,repeat=0):
         self.size = size
+        self.abso = abso
         self.seed = seed
         self.repeat = repeat
         self.randNum = random.Random()
@@ -57,8 +58,10 @@ class cust_Perlin:
         x1 = self.lerp(self.grad(AAB,xf,yf,zf-1),self.grad(BAB,xf-1,yf,zf-1),u);
         x2 = self.lerp(self.grad(ABB,xf,yf-1,zf-1),self.grad(BBB,xf-1,yf-1,zf-1),u);
         y2 = self.lerp (x1, x2, v);
-        
-        return (self.lerp(y1,y2,w)+1)/2
+        if self.abso:
+            return abs(self.lerp(y1,y2,w))
+        else:
+            return (self.lerp(y1,y2,w)+1)/2
         
         
     def lerp(self,a,b,x):
