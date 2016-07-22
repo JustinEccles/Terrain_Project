@@ -86,5 +86,18 @@ class cust_Perlin:
             a %= self.repeat
         return a
     
-    
+    def custPerlOctave(self,x,y,octaves=1,persistence=0.5,z=0):
+        total = 0
+        frequency = 1
+        amplitude = 1
+        maxValue= 0
+        for i in range(octaves):
+            total += self.custPerl(x*frequency, y*frequency, z*frequency) * amplitude
+            
+            maxValue += amplitude
+            
+            amplitude *= persistence
+            frequency *= 2
+            
+        return total/maxValue
     

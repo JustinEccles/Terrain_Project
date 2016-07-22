@@ -1,3 +1,8 @@
 *.png
 __pycache__/cust_Perlin.cpython-34.pyc
+<<<<<<< HEAD
 *.pyc
+=======
+*.blend
+*.blend
+>>>>>>> origin/master

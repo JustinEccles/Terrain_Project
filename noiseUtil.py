@@ -3,6 +3,7 @@ Created on Jul 20, 2016
 s
 @author: User
 '''
+import copy
 import pygame
 class noiseUtil:
     
@@ -32,4 +33,3 @@ class noiseUtil:
                 colorArray[posX][posY] = pygame.Color(tmpR,tmpG,tmpB,255)
                 
         return colorArray
-                

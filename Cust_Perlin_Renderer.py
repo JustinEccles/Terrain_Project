@@ -3,8 +3,7 @@ Created on Jul 18, 2016
 
 @author: User
 '''
-import pygame
-import math
+import time, math, pygame
 from cust_Perlin import cust_Perlin
 from noiseUtil import noiseUtil
 class Renderer:
@@ -21,6 +20,8 @@ class Renderer:
         self.win.blit(self.pixelDisplay,(0,0))
         pygame.display.flip()
         pygame.image.save(self.win, self.name + ".png")
+        localtime = time.asctime( time.localtime(time.time()) )
+        print("End: " + localtime)
         while True:
             eventList = pygame.event.get()
             for even in eventList:
@@ -31,8 +32,14 @@ class Renderer:
         for posX in range(self.size):
             for posY in range(self.size):
                 self.pixelDisplay.set_at((posX, posY),pixelArrayList[posX][posY])
-        
-Size_Alpha = 1000
+
+
+
+
+
+localtime = time.asctime( time.localtime(time.time()) )
+print("Start: " + localtime)
+Size_Alpha = 400
 Array_Alpha = []
 Seed_Alpha = 420
 Perl_Alpha = cust_Perlin(Seed_Alpha,Size_Alpha,0)
@@ -40,7 +47,8 @@ for pos in range(Size_Alpha):
     Array_Alpha.append([])
 for x in range(Size_Alpha):
     for y in range(Size_Alpha):
-        Array_Alpha[x].append(Perl_Alpha.custPerl(x/math.sqrt(Size_Alpha), y/math.sqrt(Size_Alpha)))
+        tmpVal = Perl_Alpha.custPerlOctave(x/40, y/40,1,0.8)
+        Array_Alpha[x].append(tmpVal)
 Render_Alpha = Renderer(Array_Alpha,Size_Alpha,Seed_Alpha)
 
 
