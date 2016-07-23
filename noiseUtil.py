@@ -4,17 +4,20 @@ s
 @author: User
 '''
 import pygame
+import random
 class noiseUtil:
     
     def __init__(self):
         self.GREEN = pygame.Color(0,153,51,255)
         self.BLUE = pygame.Color(0,32,128,255)
         self.RED = pygame.Color(255,0,0,255)
-        self.BROWN = pygame.Color(134,89,45,255)
+        self.BROWN = pygame.Color(255,150,100,255)
         self.WHITE = pygame.Color(255,255,255,255)
         self.YELLOW = pygame.Color(230,153,0,255)
         self.GRAY = pygame.Color(169,169,169,255)
         self.DARKGREEN = pygame.Color(51,102,0,255)
+        self.LIGHTBLUE = pygame.Color(0,0,205,255)
+        self.DARKBLUE = pygame.Color(0,0,150,255)
         self.PINK = pygame.Color(255,51,255,255) # A.k.a. "Debug Pink"
         
     def convertDblToClrArray(self,colorArray,blackReplace=pygame.Color(0,0,0,255),whiteReplace=pygame.Color(255,255,255,255)):
@@ -47,9 +50,17 @@ class noiseUtil:
             colorArray.append([])
         for x in range(size):
             for y in range(size):
-                if heightMap[x][y] < 0.39:
+                if heightMap[x][y] < 0.3:
                     colorArray[x].append(self.BLUE)
-                elif (heightMap[x][y] > 0.95):
+                elif heightMap[x][y] < 0.37:
+                    colorArray[x].append(self.DARKBLUE)
+                elif heightMap[x][y] < 0.39:
+                    colorArray[x].append(self.LIGHTBLUE)
+                elif heightMap[x][y] > 0.4:
+                    colorArray[x].append(pygame.Color(int(self.BROWN.r*heightMap[x][y]),int(self.BROWN.g*heatMap[x][y]),int(self.BROWN.b*heightMap[x][y])))
+                else:
+                    colorArray[x].append(self.YELLOW)
+                '''elif (heightMap[x][y] > 0.95):
                     if (heatMap[x][y] < 0.95):
                         colorArray[x].append(self.GRAY)
                     if (heatMap[x][y] >= 0.95):
@@ -70,7 +81,8 @@ class noiseUtil:
                             colorArray[x].append(self.WHITE)
                         else:
                             colorArray[x].append(self.BROWN)
-                else:
-                    colorArray[x].append(self.PINK)
+                            '''
+                
+                    
         return colorArray
         

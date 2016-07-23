@@ -40,8 +40,8 @@ localtime = time.asctime( time.localtime(time.time()) )
 print("Start: " + localtime)
 noiseUtilities = noiseUtil()
 
-seed = str(100) + ""
-name = "1"
+seed = str(10) + ""
+name = "10"
 size = 500
 hMap = heatMap(size)
 arrayHeat = hMap.getHeatMap()
@@ -72,9 +72,9 @@ arrayOne = noiseUtilities.getGroundColor(size, arrayAlpha, arrayHeat, arrayMoist
 localtime = time.asctime( time.localtime(time.time()) )
 print("End: " + localtime)
 Render_Alpha = Renderer(arrayOne,size,name + " biome")
-Render_Beta = Renderer(noiseUtilities.convertDblToClrArray(arrayHeat,noiseUtilities.RED, noiseUtilities.WHITE),size,name + " heat")
-Render_Charlie = Renderer(noiseUtilities.convertDblToClrArray(arrayMoisture,noiseUtilities.GRAY, noiseUtilities.BLUE),size,name + " moisture")
-Render_Delta = Renderer(noiseUtilities.convertDblToClrArray(arrayAlpha),size,name + " height")
+#Render_Beta = Renderer(noiseUtilities.convertDblToClrArray(arrayHeat,noiseUtilities.RED, noiseUtilities.WHITE),size,name + " heat")
+#Render_Charlie = Renderer(noiseUtilities.convertDblToClrArray(arrayMoisture,noiseUtilities.GRAY, noiseUtilities.BLUE),size,name + " moisture")
+#Render_Delta = Renderer(noiseUtilities.convertDblToClrArray(arrayAlpha),size,name + " height")
 '''ExperimentArray = []
 for pos in range(size):
     ExperimentArray.append([])
