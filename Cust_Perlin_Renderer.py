@@ -74,13 +74,13 @@ print("End: " + localtime)
 Render_Alpha = Renderer(arrayOne,size,name + " biome")
 Render_Beta = Renderer(noiseUtilities.convertDblToClrArray(arrayHeat,noiseUtilities.RED, noiseUtilities.WHITE),size,name + " heat")
 Render_Charlie = Renderer(noiseUtilities.convertDblToClrArray(arrayMoisture,noiseUtilities.GRAY, noiseUtilities.BLUE),size,name + " moisture")
-Render_Delta = Renderer(noiseUtilities.convertDblToClrArray(arrayAlpha,size,name + " height"))
-ExperimentArray = []
+Render_Delta = Renderer(noiseUtilities.convertDblToClrArray(arrayAlpha),size,name + " height")
+'''ExperimentArray = []
 for pos in range(size):
     ExperimentArray.append([])
 for x in range(size):
     for y in range(size):
         ExperimentArray[x].append(pygame.Color(int(arrayOne[x][y].r * arrayAlpha[x][y]),int(arrayOne[x][y].g * arrayAlpha[x][y]),int(arrayOne[x][y].b * arrayAlpha[x][y])))
         
-Render_Echo = Renderer(ExperimentArray,size,name + " bioheight")
+Render_Echo = Renderer(ExperimentArray,size,name + " bioheight")'''
 
