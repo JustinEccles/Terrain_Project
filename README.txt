@@ -7,3 +7,6 @@ Terrain Generation References:
   
 Blender Reference:
   https://github.com/a1studmuffin/SpaceshipGenerator
+  
+Poster Resources:
+  http://i.stack.imgur.com/NQqLa.jpg
