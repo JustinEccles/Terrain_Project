@@ -11,7 +11,7 @@ class noiseUtil:
         self.GREEN = pygame.Color(0,153,51,255)
         self.BLUE = pygame.Color(0,32,128,255)
         self.RED = pygame.Color(255,0,0,255)
-        self.BROWN = pygame.Color(255,150,100,255)
+        self.BROWN = pygame.Color(255,170,125,255)
         self.WHITE = pygame.Color(255,255,255,255)
         self.YELLOW = pygame.Color(230,153,0,255)
         self.GRAY = pygame.Color(169,169,169,255)
@@ -57,7 +57,7 @@ class noiseUtil:
                 elif heightMap[x][y] < 0.39:
                     colorArray[x].append(self.LIGHTBLUE)
                 elif heightMap[x][y] > 0.4:
-                    colorArray[x].append(pygame.Color(int(self.BROWN.r*heightMap[x][y]),int(self.BROWN.g*heatMap[x][y]),int(self.BROWN.b*heightMap[x][y])))
+                    colorArray[x].append(pygame.Color(int(self.BROWN.r*heightMap[x][y]),int(self.BROWN.g*heightMap[x][y]),int(self.BROWN.b*heightMap[x][y])))
                 else:
                     colorArray[x].append(self.YELLOW)
                 '''elif (heightMap[x][y] > 0.95):

@@ -40,9 +40,9 @@ localtime = time.asctime( time.localtime(time.time()) )
 print("Start: " + localtime)
 noiseUtilities = noiseUtil()
 
-seed = str(10) + ""
-name = "10"
-size = 500
+seed = str(11) + ""
+name = "11"
+size = 12000
 hMap = heatMap(size)
 arrayHeat = hMap.getHeatMap()
 perlAlpha = cust_Perlin(seed,size)
