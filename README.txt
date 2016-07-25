@@ -39,3 +39,11 @@ Poster Resources:
   Initially, we could only add values to the first row of our matrix. We quickly discovered we made an error with our counting, so it skipped all rows but the first.
 
   We tried to implement a heat map created by a sin wave, but the map would have hard cutoffs between colors instead of smooth transitions.
+  
+  Future Improvements:
+
+  Add a working heat and moisture map to determine different colors for the land masses, such as prairies or mountains with snow peaks.
+
+  Have the program automatically export the matrix to a 3D renderer and construct the mesh without user input.
+
+
